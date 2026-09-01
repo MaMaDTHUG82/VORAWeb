@@ -1,0 +1,1460 @@
+:root {
+  --black: #111111;
+  --dark: #171717;
+  --gray: #242424;
+  --gray-light: #8a8a8a;
+  --white: #ffffff;
+  --orange: #f07820;
+
+  --transition: 250ms ease;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  background: #111111;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  overflow-x: hidden;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  background: #111111;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+  width: min(
+    calc(100% - 80px),
+    1240px
+  );
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+/* =====================================================
+   MOBILE CONTAINER
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .container {
+    width: calc(100% - 40px);
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREENS
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .container {
+    width: calc(100% - 30px);
+  }
+
+}
+
+/* =========================================================
+   VORA — MENU
+   Premium / Minimal / RTL
+========================================================= */
+
+.menu-page {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  background: #111111;
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   MENU HERO
+========================================================= */
+
+.menu-hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #151515;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND
+========================================================= */
+
+.menu-hero-background {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(240, 120, 32, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      rgba(255, 255, 255, 0.035),
+      transparent 40%
+    ),
+    linear-gradient(
+      125deg,
+      #0d0d0d 0%,
+      #1b1b1b 55%,
+      #111111 100%
+    );
+}
+
+
+/* =========================================================
+   HERO BACKGROUND OVERLAY
+========================================================= */
+
+.menu-hero-background::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(240, 120, 32, 0.10),
+      transparent 35%
+    );
+}
+
+.menu-hero-background::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.35)
+    );
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
+
+.menu-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 20%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.menu-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 0 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.menu-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(56px, 8vw, 110px);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+
+  letter-spacing: -4px;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  animation:
+    menuHeroFadeIn 900ms cubic-bezier(0.22, 1, 0.36, 1)
+    200ms
+    forwards;
+}
+
+
+/* VORA */
+
+.menu-hero h1 span {
+  display: inline-block;
+
+  margin-right: 12px;
+
+  color: #f07820;
+
+  direction: ltr;
+
+  text-shadow:
+    0 0 35px rgba(240, 120, 32, 0.18);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.menu-hero p {
+  max-width: 480px;
+
+  margin: 28px auto 0;
+
+  color: #929292;
+
+  font-size: 14px;
+
+  line-height: 2;
+
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  animation:
+    menuHeroFadeIn 900ms cubic-bezier(0.22, 1, 0.36, 1)
+    500ms
+    forwards;
+}
+
+
+/* =========================================================
+   FADE IN ANIMATION
+========================================================= */
+
+@keyframes menuHeroFadeIn {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .menu-hero h1,
+  .menu-hero p {
+    opacity: 1;
+
+    transform: none;
+
+    animation: none;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .menu-hero {
+    min-height: 500px;
+  }
+
+  .menu-hero-content {
+    max-width: 100%;
+
+    padding:
+      0 20px;
+  }
+
+  .menu-hero h1 {
+    font-size: 58px;
+
+    letter-spacing: -3px;
+  }
+
+  .menu-hero h1 span {
+    margin-right: 8px;
+  }
+
+  .menu-hero p {
+    max-width: 320px;
+
+    margin-top: 22px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .menu-hero h1 {
+    font-size: 48px;
+
+    letter-spacing: -2px;
+  }
+
+  .menu-hero p {
+    max-width: 280px;
+
+    font-size: 11px;
+  }
+
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.menu-hero {
+  position: relative;
+  width: 100%;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #151515;
+}
+
+.menu-hero-background {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 72% 42%,
+      rgba(240, 120, 32, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 45% 70%,
+      rgba(255, 255, 255, 0.035),
+      transparent 38%
+    ),
+    linear-gradient(
+      125deg,
+      #0d0d0d 0%,
+      #1b1b1b 55%,
+      #111111 100%
+    );
+}
+
+.menu-hero-background::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 80% 40%,
+      rgba(240, 120, 32, 0.12),
+      transparent 25%
+    );
+}
+
+.menu-hero-background::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.05) 0%,
+      rgba(0, 0, 0, 0.12) 45%,
+      rgba(0, 0, 0, 0.92) 100%
+    );
+}
+
+.menu-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 17, 17, 0.1),
+      rgba(17, 17, 17, 0.45)
+    );
+}
+
+.menu-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  padding-bottom: 90px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.menu-hero-content .eyebrow {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #f07820;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  direction: ltr;
+}
+
+.menu-hero-content .eyebrow::before {
+  content: "";
+
+  width: 30px;
+  height: 1px;
+
+  background: #f07820;
+}
+
+.menu-hero h1 {
+  position: relative;
+
+  z-index: 2;
+
+  margin: 24px 0 0;
+
+  font-size:
+    clamp(64px, 9vw, 120px);
+
+  line-height: 0.95;
+
+  font-weight: 800;
+
+  letter-spacing: -6px;
+}
+
+.menu-hero h1 span {
+  color: #f07820;
+}
+
+.menu-hero p {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 420px;
+
+  margin: 28px 0 0;
+
+  color: #898989;
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+
+/* =========================================================
+   CATEGORY NAVIGATION
+========================================================= */
+
+.menu-navigation {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  background:
+    rgba(17, 17, 17, 0.94);
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.04);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(20px);
+
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.menu-navigation-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 34px;
+
+  min-height: 70px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.menu-navigation-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-navigation a {
+  position: relative;
+
+  flex-shrink: 0;
+
+  padding: 25px 0;
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  white-space: nowrap;
+
+  transition:
+    color 250ms ease;
+}
+
+.menu-navigation a::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+
+  bottom: 15px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: #f07820;
+
+  transition:
+    width 250ms ease;
+}
+
+.menu-navigation a:hover {
+  color: #ffffff;
+}
+
+.menu-navigation a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.menu-content {
+  width: 100%;
+
+  padding:
+    120px 0
+    160px;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.menu-category {
+  scroll-margin-top: 100px;
+
+  margin: 0 0 150px;
+}
+
+.menu-category:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CATEGORY HEADER
+========================================================= */
+
+.menu-category-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  margin-bottom: 55px;
+
+  padding-bottom: 22px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.09);
+}
+
+.menu-category-title {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 18px;
+}
+
+.menu-category-number {
+  padding-bottom: 8px;
+
+  color: #f07820;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  direction: ltr;
+}
+
+.menu-category-en {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #5f5f5f;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  direction: ltr;
+}
+
+.menu-category-title h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(30px, 3.5vw, 46px);
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* =========================================================
+   MENU ITEMS GRID
+========================================================= */
+
+.menu-items {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  column-gap: 70px;
+
+  row-gap: 0;
+}
+
+
+/* =========================================================
+   MENU ITEM
+========================================================= */
+
+.menu-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr);
+
+  gap: 22px;
+
+  padding: 28px 0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.07);
+
+  transition:
+    padding-right 250ms ease;
+}
+
+.menu-item::before {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+
+  top: 0;
+
+  width: 2px;
+
+  height: 0;
+
+  background: #f07820;
+
+  transition:
+    height 300ms ease;
+}
+
+.menu-item:hover {
+  padding-right: 10px;
+}
+
+.menu-item:hover::before {
+  height: 100%;
+}
+
+
+/* =========================================================
+   ITEM IMAGE
+========================================================= */
+
+.menu-item-image {
+  position: relative;
+
+  width: 145px;
+  height: 145px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #292929,
+      #171717
+    );
+
+  transition:
+    filter 250ms ease,
+    transform 300ms ease;
+}
+
+.menu-item-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(240, 120, 32, 0.12),
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
+
+.menu-item:hover .menu-item-image {
+  filter: brightness(1.08);
+
+  transform: scale(1.015);
+}
+
+
+/* =========================================================
+   PLACEHOLDER IMAGES
+========================================================= */
+
+.menu-image-hot-chocolate {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #bd7b4b,
+      #69402b 30%,
+      #211814 65%
+    );
+}
+
+.menu-image-masala-tea {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #c18a55,
+      #70472c 30%,
+      #211814 65%
+    );
+}
+
+.menu-image-black-tea {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #875238,
+      #4a2d20 30%,
+      #1b1512 65%
+    );
+}
+
+.menu-image-green-tea {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #87905b,
+      #485033 30%,
+      #181b15 65%
+    );
+}
+
+.menu-image-lemonade {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #e1a044,
+      #925b28 30%,
+      #2a1d14 65%
+    );
+}
+
+.menu-image-ice-tea {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #bd7540,
+      #6d4125 30%,
+      #211712 65%
+    );
+}
+
+.menu-image-mojito {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #82965d,
+      #465336 30%,
+      #192018 65%
+    );
+}
+
+.menu-image-strawberry {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #c66a5e,
+      #773936 30%,
+      #241516 65%
+    );
+}
+
+.menu-image-vora-burger {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #c47b46,
+      #704129 30%,
+      #211712 65%
+    );
+}
+
+.menu-image-cheeseburger {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #d39a55,
+      #7c4b29 30%,
+      #241812 65%
+    );
+}
+
+.menu-image-smoked-burger {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #9c5b3d,
+      #583426 30%,
+      #201613 65%
+    );
+}
+
+.menu-image-chicken-sandwich {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #c18b5b,
+      #704b32 30%,
+      #211914 65%
+    );
+}
+
+.menu-image-beef-ciabatta {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #a76743,
+      #603826 30%,
+      #211613 65%
+    );
+}
+
+.menu-image-pesto-chicken {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #7c8c5b,
+      #465233 30%,
+      #192018 65%
+    );
+}
+
+.menu-image-espresso {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #9b603b,
+      #5c3725 30%,
+      #1d1411 65%
+    );
+}
+
+.menu-image-americano {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #aa704a,
+      #623e29 30%,
+      #1d1511 65%
+    );
+}
+
+.menu-image-cappuccino {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #c69268,
+      #81583f 30%,
+      #332219 65%
+    );
+}
+
+.menu-image-latte {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #cba078,
+      #896249 30%,
+      #38261d 65%
+    );
+}
+
+.menu-image-mocha {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #9e613f,
+      #613925 30%,
+      #211613 65%
+    );
+}
+
+.menu-image-cheesecake {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #d1a47c,
+      #89654b 30%,
+      #38271d 65%
+    );
+}
+
+.menu-image-brownie {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #915231,
+      #572f20 30%,
+      #201512 65%
+    );
+}
+
+.menu-image-tiramisu {
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #b68861,
+      #6e4d35 30%,
+      #292019 65%
+    );
+}
+
+
+/* =========================================================
+   ITEM CONTENT
+========================================================= */
+
+.menu-item-content {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.menu-item-top {
+  width: 100%;
+
+  min-width: 0;
+}
+
+.menu-item h3 {
+  margin: 0;
+
+  color: #eeeeee;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 1.6;
+
+  transition:
+    color 200ms ease;
+}
+
+.menu-item:hover h3 {
+  color: #ffffff;
+}
+
+.menu-item p {
+  max-width: 260px;
+
+  margin:
+    8px 0
+    16px;
+
+  color: #707070;
+
+  font-size: 11px;
+
+  line-height: 2;
+
+  transition:
+    color 200ms ease;
+}
+
+.menu-item:hover p {
+  color: #858585;
+}
+
+.menu-item-price {
+  display: inline-block;
+
+  color: #f07820;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   POPULAR BADGE
+========================================================= */
+
+.menu-item-badge {
+  position: absolute;
+
+  top: 0px;
+  right: 0px;
+
+  z-index: 5;
+
+  padding:
+    5px 9px;
+
+  background:
+    #f07820;
+
+  color:
+    #111111;
+
+  border-radius: 3px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .menu-items {
+    grid-template-columns: 1fr;
+
+    column-gap: 0;
+  }
+
+  .menu-navigation-inner {
+    justify-content: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .menu-hero {
+    min-height: 500px;
+  }
+
+  .menu-hero-content {
+    padding-bottom: 65px;
+  }
+
+  .menu-hero h1 {
+    margin-top: 20px;
+
+    font-size: 62px;
+
+    letter-spacing: -4px;
+  }
+
+  .menu-hero p {
+    max-width: 300px;
+
+    margin-top: 20px;
+
+    font-size: 12px;
+  }
+
+
+  /* Navigation */
+
+  .menu-navigation-inner {
+    min-height: 60px;
+
+    gap: 24px;
+
+    padding:
+      0 4px;
+  }
+
+  .menu-navigation a {
+    padding:
+      21px 0;
+
+    font-size: 11px;
+  }
+
+  .menu-navigation a::after {
+    bottom: 12px;
+  }
+
+
+  /* Content */
+
+  .menu-content {
+    padding:
+      75px 0
+      100px;
+  }
+
+
+  /* Categories */
+
+  .menu-category {
+    margin-bottom: 90px;
+  }
+
+  .menu-category-header {
+    margin-bottom: 25px;
+
+    padding-bottom: 18px;
+  }
+
+  .menu-category-title {
+    gap: 0;
+  }
+
+  .menu-category-number {
+    display: none;
+  }
+
+
+  .menu-category-en {
+    margin-bottom: 7px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+  }
+
+  .menu-category-title h2 {
+    font-size: 28px;
+
+    letter-spacing: -1px;
+  }
+
+
+  /* Items */
+
+  .menu-item {
+    grid-template-columns:
+      105px
+      minmax(0, 1fr);
+
+    gap: 16px;
+
+    padding:
+      20px 0;
+  }
+
+  .menu-item-image {
+    width: 105px;
+    height: 105px;
+
+    border-radius: 6px;
+  }
+
+  .menu-item-content {
+    align-items: center;
+  }
+
+  .menu-item h3 {
+    font-size: 14px;
+  }
+
+  .menu-item p {
+    margin:
+      5px 0
+      10px;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+  }
+
+  .menu-item-price {
+    font-size: 10px;
+  }
+
+  .menu-item-badge {
+    top: 38px;
+    right: 7px;
+
+    padding:
+      4px 6px;
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .menu-item {
+    grid-template-columns:
+      90px
+      minmax(0, 1fr);
+
+    gap: 13px;
+  }
+
+  .menu-item-image {
+    width: 90px;
+    height: 90px;
+  }
+
+  .menu-item h3 {
+    font-size: 13px;
+  }
+
+  .menu-item p {
+    font-size: 8px;
+  }
+
+}
+
+
+.vora-logo {
+  display: inline-block;
+
+  width: 480px;
+  height: auto;
+
+  margin-right: 15px;
+
+  vertical-align: middle;
+}
